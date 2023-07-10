@@ -12,12 +12,22 @@ function Producto() {
   const [products2, setProducts2] =useState ([]);
   const [searchItem, setSearchItem]=useState('')
   const [changeColor, setChangeColor] =useState(false)
-  const addFav = (product) => {
-    console.log(product);
-    setChangeColor(!changeColor)
 
-  };
-  
+
+  const addFav = (product) => {
+    setChangeColor(!changeColor);
+
+    // Obtener los artículos guardados del almacenamiento local
+    const savedItems = JSON.parse(localStorage.getItem('guardados')) || [];
+
+    // Verificar si el producto ya está guardado
+    const isSaved = savedItems.find((item) => item.id === product.id);
+
+    if (!isSaved) {
+      savedItems.push(product);
+      localStorage.setItem('guardados', JSON.stringify(savedItems));
+    }
+};
   useEffect(() => {
     const getData = async () => {
       const result = await fetchData(`products/${id}`);
