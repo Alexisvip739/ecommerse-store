@@ -1,0 +1,26 @@
+.contenido-categorias{
+    width: 100%;
+    margin:5% auto;
+    display: flex;
+    gap: 90px;
+    text-align: center;
+}
+.date-products{
+    display: flex;
+    gap: 20px;
+}
+.card-products{
+    width: 20%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.card-products img{
+    margin: auto;
+    width: 100%;
+    border-radius: 15px;
+}
